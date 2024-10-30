@@ -29,7 +29,7 @@ export default defineConfig({
             aliPayQR: 'your_image_link',
             weChatQR: 'your_image_link'
         })
-      ]
+     ]
   }
 })
 ```
