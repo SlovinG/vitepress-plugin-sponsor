@@ -4,7 +4,7 @@
 REMOTE_REPO_URL="git@github.com:SlovinG/vitepress-plugin-sponsor.git"
 
 # 远程 Git 仓库分支
-REMOTE_BRANCH="master"
+REMOTE_BRANCH="main"
 
 # 初始化 Git 仓库（如果尚未初始化）
 if [ ! -d ".git" ]; then
