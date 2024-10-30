@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "vitepress-plugin-sponsor": ["../index.ts"]
+    },
+    "declaration": true,
+    "outDir": "../../dist/components"
+  },
+  "include": ["."]
+}

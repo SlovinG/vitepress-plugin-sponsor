@@ -1,0 +1,61 @@
+{
+  "name": "vitepress-plugin-sponsor",
+  "version": "0.1.0",
+  "description": "vitepress plugin, vitepress-plugin-sponsor",
+  "author": "SlovinG",
+  "license": "MIT",
+  "homepage": "https://github.com/SlovinG/vitepress-plugin-sponsor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SlovinG/vitepress-plugin-sponsor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SlovinG/vitepress-plugin-sponsor/issues"
+  },
+  "keywords": [
+    "vitepress",
+    "plugin",
+    "sponsor",
+    "layout",
+    "打赏"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "pnpm run /^dev:.*/",
+    "dev:plugin": "npx tsup src/index.ts --dts --watch --format esm,cjs --external vitepress",
+    "dev:component": "tsc --sourcemap -w --preserveWatchOutput -p src/components",
+    "dev:watch": "node scripts/watchAndCopy.mjs",
+    "build": "pnpm run /^build:.*/",
+    "build:plugin": "npx tsup src/index.ts --dts --format esm,cjs --external vitepress --silent",
+    "build:component": "tsc -p src/components && node scripts/copyComponents.mjs"
+  },
+  "peerDependencies": {
+    "vitepress": "^1.4.2"
+  },
+  "dependencies": {
+    "@types/node": "^22.8.4",
+    "clear-npx-cache": "^1.1.2",
+    "javascript-stringify": "^2.1.0"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.1",
+    "fs-extra": "^11.2.0",
+    "tinyglobby": "^0.2.10",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vite": "^5",
+    "vitepress": "^1.4.2",
+    "vue": "^3.5.12"
+  }
+}
