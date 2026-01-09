@@ -1,6 +1,6 @@
 {
   "name": "vitepress-plugin-sponsor",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "description": "vitepress plugin, vitepress-plugin-sponsor",
   "author": "SlovinG",
   "license": "MIT",
@@ -41,7 +41,7 @@
     "build:component": "tsc -p src/components && node scripts/copyComponents.mjs"
   },
   "peerDependencies": {
-    "vitepress": "^1.4.2"
+    "vitepress": "^1 || ^2 || ^2.0.0-alpha.0"
   },
   "dependencies": {
     "@types/node": "^22.8.4",
@@ -55,7 +55,7 @@
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vite": "^5",
-    "vitepress": "^1.4.2",
-    "vue": "^3.5.12"
+    "vitepress": "2.0.0-alpha.15",
+    "vue": "^3.5.24"
   }
 }

@@ -1,7 +1,7 @@
-import type {PluginOption} from 'vite'
-import {stringify} from 'javascript-stringify'
-import type {SponsorOptions} from './type'
-import {getDirname} from './util'
+import type { PluginOption } from 'vite'
+import { stringify } from 'javascript-stringify'
+import type { SponsorOptions } from './type'
+import { getDirname } from './util'
 
 // TODO：导入的组件名，请按实际情况修改
 const componentName = 'BlogSponsor'
@@ -40,17 +40,6 @@ export function SponsorPlugin(options?: SponsorOptions): any {
                 }
             }
         },
-        resolveId(id: string) {
-            if (id === virtualModuleId) {
-                return resolvedVirtualModuleId
-            }
-        },
-        load(this, id) {
-            if (id === resolvedVirtualModuleId) {
-                // TODO：传入需要的配置
-                return `export default ${stringify(componentOptions)}`
-            }
-        },
         transform(code, id) {
             // 使用 官方 Layout.vue 直接插入组件
             if (id.endsWith('vitepress/dist/client/theme-default/Layout.vue')) {
@@ -62,6 +51,17 @@ export function SponsorPlugin(options?: SponsorOptions): any {
                 const setupPosition = '<script setup lang="ts">'
                 transformResult = transformResult.replace(setupPosition, `${setupPosition}\nimport ${componentName} from './${componentName}.vue'`)
                 return transformResult
+            }
+        },
+        resolveId(id: string) {
+            if (id === virtualModuleId) {
+                return resolvedVirtualModuleId
+            }
+        },
+        load(this, id) {
+            if (id === resolvedVirtualModuleId) {
+                // TODO：传入需要的配置
+                return `export default ${stringify(componentOptions)}`
             }
         },
     }
