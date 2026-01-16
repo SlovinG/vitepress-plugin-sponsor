@@ -17,10 +17,10 @@ const sponsorConfig = computed<SponsorOptions>(() => ({
 
 // TODO：按实际情况修改命名
 /*const sponsorOptions: SponsorOptions = blogSponsorPluginOptions*/
-import githubUrl from './images/github.svg?url'
-import likeUrl from './images/like.svg?url'
-import alipayUrl from './images/alipay.svg?url'
-import wechatUrl from './images/wechat.svg?url'
+const githubUrl = new URL('./images/github.svg', import.meta.url).href
+const likeUrl   = new URL('./images/like.svg', import.meta.url).href
+const alipayUrl = new URL('./images/alipay.svg', import.meta.url).href
+const wechatUrl = new URL('./images/wechat.svg', import.meta.url).href
 
 // 响应式状态
 const isQRVisible = ref(false) // 控制 QRBox 显示
